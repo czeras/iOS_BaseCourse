@@ -1,4 +1,7 @@
 // pages/details/details.js
+
+var API = require("../../datas/moveDetails.js")
+
 Page({
 
   /**
@@ -12,6 +15,47 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+
+    // 动态更新标题
+    wx.setNavigationBarTitle({
+      title: '详情页',
+    })
+
+    // 显示一个菊花按钮
+    wx.showNavigationBarLoading()
+
+    // 加载 api
+    /*
+    注意：由于项目使用的是测试的小程序账号，所以 请求的最后需要自己拼接参数，
+    这里加载的数据为本地数据
+    */ 
+    var that = this;
+    setTimeout(function () {
+      wx.hideNavigationBarLoading();
+      wx.setNavigationBarTitle({
+        title: '详情页',
+      });
+
+      // 设置数据
+      that.setData({
+        data: API.detail,
+      });
+    },
+      2000);
+
+
+    // wx.request({
+    //   url: 'http://api.douban.com/v2/movie/subject/'+options.id,
+    //   data:{},
+    //   header:{
+    //     'content-type':'json'
+    //   },
+    //   success:function(res){
+    //     console.log(JSON.stringify("res :: "+res));
+    //   }
+    // })
+
 
   },
 

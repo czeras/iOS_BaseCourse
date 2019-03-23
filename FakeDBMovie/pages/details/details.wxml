@@ -1,2 +1,15 @@
 <!--pages/details/details.wxml-->
-<text>pages/details/details.wxml</text>
+<text>{{data.reviews_count}}</text>
+
+
+
+<!-- 图片（大）
+     电影名
+     评分
+     国家
+     类型
+     导演
+     概括
+     
+ -->
+

@@ -5,10 +5,11 @@
 ## 🔪 日常练手
 > 业精于勤，荒于嬉；行成于思，毁于随
 
-目录名称 | 说明 |时间 | 文章名称
-------- | ------- | ------- | -------
-Allock&init|oc对象探究|2019-03-13|[链接](https://www.jianshu.com/p/9190d5c93e17)|
-MVVMDemo|MVVMDemo|2019-03-20|   |
+目录名称 | 说明| 文章名称
+------- |  ------- | -------
+Allock&init|oc对象探究|[链接](https://www.jianshu.com/p/9190d5c93e17)|
+MVVMDemo|MVVMDemo| |
+FakeDBMovie|微信小程序练习|  |
 
 
 

@@ -1,0 +1,30 @@
+
+<!-- 注意 js 中 list 数据 为 字段 subjects 数组 -->
+<view class='page-header'>
+  <view class='page-header-text'>{{title}}</view>
+</view>
+
+<scroll-view scroll-y='true' class='page-body'>
+
+  <navigator url='../details/details' wx:for='{{list}}' wx:key='this'>
+  
+    <view class='item'>
+      <image src='{{item.images.large}}' class='poster'></image>
+      <view class='meta'>
+        <text class='title'>{{item.title}}</text>
+        <text class='sub-title'>{{item.original_title}}</text>
+
+        <text class='artist'>
+          <block wx:for='{{item.directors}}' wx:key='this'>{{item.name}}</block>
+        </text>
+      </view>
+
+      <view class='ratingItem'>
+        <text class='rating'>评分:{{item.rating.average}} 分</text>
+        <text class='rating'>最高:{{item.rating.max}} 分</text>
+      </view>
+      
+    </view>
+  </navigator>
+
+</scroll-view>

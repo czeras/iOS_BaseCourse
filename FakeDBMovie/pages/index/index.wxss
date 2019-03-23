@@ -1,0 +1,72 @@
+.page{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header{
+  display: flex;
+  justify-content: center;
+  border-bottom: 2rpx solid #ccc;
+  margin-bottom: 10rpx;
+}
+.page-header-text{
+  padding: 20rpx 40rpx;
+  color: #999;
+  text-align: center;
+}
+
+.page-body{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.item{
+  display: flex;
+  padding: 20rpx 40rpx;
+  border-bottom: 2rpx solid #ccc;
+}
+
+.poster{
+  width: 128rpx;
+  height: 128rpx;
+  margin-right: 30rpx;
+}
+
+.meta{
+  /* display: flex; */
+  flex: 1;
+  /* flex-direction: column; */
+}
+
+.meta .title,.meta .sub-title{
+  display: flex;
+  margin-bottom: 15rpx;
+}
+.meta .title{
+  font-size: 32rpx;
+}
+.meta .sub-title{
+  font-size: 28rpx;
+  color: #999;
+}
+.artist{
+  color: #999;
+  font-size: 26rpx;
+}
+.rating{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: red; 
+  /* border: 1rpx dotted green; */
+  margin-bottom: 10rpx;
+}
+
+/* 注意评分的盒子，父节点盒子布局 */
+.ratingItem{
+  display: flex;
+  flex-direction: column;
+
+  /* border: 2rpx solid cyan; */
+}

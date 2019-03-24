@@ -1,12 +1,12 @@
 
 <!-- 注意 js 中 list 数据 为 字段 subjects 数组 -->
 <view class='page-header'>
-  <view class='page-header-text'>{{title}}</view>
+  <view class='page-header-text'>{{data.title}}</view>
 </view>
 
 <scroll-view scroll-y='true' class='page-body'>
 
-  <navigator url='../details/details?id={{item.id}}' wx:for='{{list}}' wx:key='this'>
+  <navigator url='../details/details?id={{item.id}}' wx:for='{{data.subjects}}' wx:key='this'>
   
     <view class='item'>
       <image src='{{item.images.large}}' class='poster'></image>

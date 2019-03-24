@@ -1,15 +1,18 @@
 //index.js
 //获取应用实例
 const app = getApp()
-var API = require("../../datas/move.js")
+var API = require("../../datas/move.js")             // 本地js链接
+// var url = "http://api.douban.com/v2/movie/top250" // 这个api不知道为什么不行，用下面的可以
+var url = "http://douban.uieee.com/v2/movie/top250"
+
 
 Page({
   data: {
-    list:[],
-    title:"",
   },
   
   onLoad: function () {
+    var that = this;
+
     // 显示一个加载状态
     wx.showToast({
       title: '加载中...',
@@ -19,44 +22,30 @@ Page({
     // 显示菊花按钮 
     wx.showNavigationBarLoading();
     
-    var that = this;
     setTimeout(function(){
       wx.hideNavigationBarLoading();
       wx.setNavigationBarTitle({
         title: '豆瓣电影首页',
       });
-
-      // 设置数据
-      that.setData({
-        list: API.moveJsonList["subjects"],
-        title:"豆瓣电影Top250"
-      });
     },
     2000);
 
-
-
-
-    // console.log(JSON.stringify(API.moveJsonList["subjects"]));
-
-
-
-    /* 由于网络的限制这里就不做处理了 ，数据直接放在 list中 注意数据取得是 subjects 数组
-    wx.showToast({
-      title: '加载中...',
-    });
+    // 设置网络请求
     wx.request({
-      url: API,
-      data:{},
-      method:'GET',
-      header:{
-        'content-type':'json'
+      url: url,
+      data: {},
+      method: 'GET',
+      header: {
+        'content-type': 'json'
       },
-      success:function(res){
-        console.log("获取接口成功" + JSON.stringify(res));
+      success: function (res) {
+        // console.log("获取接口成功" + JSON.stringify(res));
+
+        that.setData({
+          data:res.data
+        })
       }
     })
-    */
   },
 
 })

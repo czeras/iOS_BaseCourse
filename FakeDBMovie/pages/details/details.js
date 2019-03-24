@@ -1,6 +1,6 @@
 // pages/details/details.js
 
-var API = require("../../datas/moveDetails.js")
+// var API = require("../../datas/moveDetails.js") // 本地链接
 
 Page({
 
@@ -15,7 +15,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    console.log("传入的 id " + JSON.stringify(options.id));
+    var that = this
 
     // 动态更新标题
     wx.setNavigationBarTitle({
@@ -36,25 +37,24 @@ Page({
       wx.setNavigationBarTitle({
         title: '详情页',
       });
-
-      // 设置数据
-      that.setData({
-        data: API.detail,
-      });
     },
       2000);
 
-
-    // wx.request({
-    //   url: 'http://api.douban.com/v2/movie/subject/'+options.id,
-    //   data:{},
-    //   header:{
-    //     'content-type':'json'
-    //   },
-    //   success:function(res){
-    //     console.log(JSON.stringify("res :: "+res));
-    //   }
-    // })
+    // 网络请求
+    wx.request({
+      url: 'http://douban.uieee.com/v2/movie/subject/'+options.id,
+      data:{},
+      method: 'GET',
+      header:{
+        'content-type':'json'
+      },
+      success:function(res){
+        // console.log("res  "+ JSON.stringify(res));
+        that.setData({
+          data:res.data
+        })
+      }
+    })
 
 
   },

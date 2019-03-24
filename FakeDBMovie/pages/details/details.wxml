@@ -1,15 +1,23 @@
 <!--pages/details/details.wxml-->
-<text>{{data.reviews_count}}</text>
+ <scroll-view scroll-y="true">
+  <view class='meta'>
+    <image src='{{data.images.large}}'></image>
+    <text class='title'>{{data.title}},{{data.year}}</text>
+    <text class='info'>评分：{{data.rating.average}}</text>
+    <text class='countries'>国家：
+      <block wx:for="{{data.countries}}" wx:key="this">{{item}}</block>
+    </text>
+    <text class='type'>类型:
+      <block wx:for="{{data.genres}}" wx:key="this">{{item}}|</block>
+    </text>
+    <text class='director'>导演：
+      <block wx:for="{{data.directors}}" wx:key="this">{{item}}</block>
+    </text>
+  </view>
 
-
-
-<!-- 图片（大）
-     电影名
-     评分
-     国家
-     类型
-     导演
-     概括
-     
- -->
+  <view class='summary'>
+    <text class='label'>概括：</text>
+    <text class='content'>{{data.summary}}</text>
+  </view>
+ </scroll-view>
 
